@@ -86,7 +86,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::with('tags')->findOrFail($id);
+        $product = Product::findOrFail($id);
         if (!$product){
             return redirect(route('admin.product'))->withErrors(['status'=>'产品不存在']);
         }
@@ -110,7 +110,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::with('tags')->findOrFail($id);
+        $product = Product::findOrFail($id);
         $data = $request->only(['category_id','title','keywords','description','content','thumb','click']);
         if ($product->update($data)){
             // $product->tags()->sync($request->get('tags',[]));

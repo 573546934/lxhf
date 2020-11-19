@@ -1,15 +1,15 @@
 @extends('home.base')
 @section('tab')
 	<li><a href="/">首页</a></li>
-	<li class="actived"><a href="/default">我们是谁</a></li>
-	<li ><a href="/default">我们做什么</a></li>
-	<li><a href="/default">我们的历史</a></li>
+	<li class="actived"><a href="/who">我们是谁</a></li>
+	<li ><a href="/product">我们做什么</a></li>
+	<li><a href="/product">我们的历史</a></li>
 	<li><a href="/default">我们的未来</a></li>
 @endsection
 
 <!-- 中间内容 -->
 @section('main')
-<el-main >
+<el-main  class="el-main">
 
 	<template v-if="asideTabIndex==0">
 	 	<section>
@@ -94,6 +94,180 @@
 		</div>
 	</section>
 	</template>
+
+	<template v-if="asideTabIndex==3">
+		<section class="system">
+			<div class="sectionHead">
+			<img class="pageTitleImg" src="/home/images/systemTitle.png" alt="">
+			<div class="title">服务体系</div>
+			<div class="spaceLine1"></div>
+			</div>
+			<div class="content">
+				<div class="systemCategory">
+					<div class="item">
+						<img src="/home/images/system_1.png" alt="">
+						<span class="name">产业孵化</span>
+						<div class="desc">帮助企业注册落地，提供办公地址，配套设施，进行孵化 </div>
+					</div>
+					<div class="item">
+						<img src="/home/images/system_2.png" alt="">
+						<span class="name">基金投资</span>
+						<div class="desc">打开优质企业资本化的开端，估值定价，及时解决企业融资需求 </div>
+					</div>
+					<div class="item">
+						<img src="/home/images/system_3.png" alt="">
+						<span class="name">O+O服务 </span>
+						<div class="desc">帮助企业进行线上+线下增值服务，实现利益的最大化  </div>
+					</div>
+					<div class="item">
+						<img src="/home/images/system_4.png" alt="">
+						<span class="name">资本市场对接</span>
+						<div class="desc">联合天使\VC\PE\券商\银行等金融机构与企业进行全方位对接  </div>
+					</div>
+				</div>
+				<div class="systemInfoWrap">
+					<div class="systemInfo"><p>力新汇富联手园区打破创业孵化的地域限制，在北京共设有七个园区——创新谷房山园、十渡智谷、门头沟文创园、延庆园、怀柔园、通州园、石景山园，同时在全国各地设立孵化基地，配备了工位、独立创客空间、一站式服务大厅、洽谈室、会议室、多功能厅、书吧、咖啡厅、创客食堂与青年公寓等办公及配套设施，在协助科技企业创业、发展高新技术产业、改造升级传统产业、引进高层次人才方面发挥先锋模范作用。</p></div>
+				</div>
+			</div>
+		</section>
+	</template>
+
+	<template v-if="asideTabIndex==4">
+		<section >
+			<div class="sectionHead">
+				<img class="pageTitleImg" src="/home/images/honorTitle.png" alt="">
+				<div class="title">荣誉资质</div>
+				<div class="spaceLine1"></div>
+			</div>
+			<div class="content honors">
+				<div class="item">
+					<img src="/home/images/honor_01.png" alt="">
+					<span class="name">科学技术部众创空间</span>
+				</div>
+				<div class="item">
+					<img src="/home/images/honor_02.png" alt="">
+					<span class="name">中关村科技型企业创业孵化集聚区</span>
+				</div>
+				<div class="item">
+					<img src="/home/images/honor_03.png" alt="">
+					<span class="name">中国机器人研发基地</span>
+				</div>
+				<div class="item">
+					<img src="/home/images/honor_04.png" alt="">
+					<span class="name">中关村特色产业孵化平台</span>
+				</div>
+				<div class="item">
+					<img src="/home/images/honor_05.png" alt="">
+					<span class="name">中关村（房山）高端人才创业基地</span>
+				</div>
+				<div class="item">
+					<img src="/home/images/honor_06.png" alt="">
+					<span class="name">推荐机构会员单位</span>
+				</div>
+				<div class="item">
+					<img src="/home/images/honor_07.png" alt="">
+					<span class="name">房山区文化创意产业园区</span>
+				</div>
+				<div class="item">
+					<img src="/home/images/honor_08.png" alt="">
+					<span class="name">中国机器人研发基地</span>
+				</div>
+			</div>
+			<div class="moreArea"><img src="/home/images/arrow-down.png" class="down" alt=""></div>
+		</section>
+	</template>
+
+	<template v-if="asideTabIndex==5" >
+		<section class="team">
+			<div class="sectionHead">
+				<img class="pageTitleImg" src="/home/images/teamTitle.png" alt="">
+				<div class="title">团队介绍</div>
+				<div class="spaceLine1"></div>
+			</div>
+			<div class="content">
+				<p>力新汇富团队来自于园区招商、产业孵化、并购重组、不良资产、上市公司、中基协等多领域的专业人才，公司高层平均拥有10年+的投行管理经验，专注于互联网、大数据、人工智能、云计算、新材料、智能装备等战略新兴产业，在不良资产、重组并购方面更是拥有丰富的实战经验。</p>
+				<h3>我们立足服务，产融结合、共赢未来！</h3>
+				<ul>
+					<li>
+						<div class="imgWrap"><img src="/home/images/teamer2.png" alt=""></div>
+						<div class="teamer">
+							<div class="info">
+								<h3 class="name">王京伟 先生 </h3>
+								<div class="sub">总经理</div>
+								<p>曾任北京东方昆仑投资有限公司总经理、法定代表人，从业20年，具备丰富的并购重组经验，领导东方酒店重组项目、广州债权收购项目。曾供职于香港上市公司恒芯中国控股有限公司（股票代码HK08046）在境内全资子公司中矿京资投资有限公司，领导并主办了生物柴油并购项目和大豆蛋白借壳项目，对资本运作理解深刻。</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="imgWrap"><img src="/home/images/teamer1.png" alt=""></div>
+						<div class="teamer">
+							<div class="info">
+								<h3 class="name">李满意 先生</h3>
+								<div class="sub">副总经理兼合规风控负责人</div>
+								<p>毕业于中国政法大学法学系，8年从业经验，曾就职于中国证券投资基金业协会，负责基金监管工作，曾担任坤元资产基金经理，中鸿资本风控总监，负责发行的母基金及产业基金管理规模超20亿元，主导了对数联铭品、博纳影业、银联商务（已过会）等企业的投资工作，在投资管理方面有丰富的经验、深刻的认识及独到的见解，擅长挖掘项目价值。</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</template>
+
+	<template v-if="asideTabIndex==6">
+		<section class="partner">
+			<div class="sectionHead">
+				<img class="pageTitleImg" src="/home/images/partnerTitle.png" alt="">
+				<div class="title">合作伙伴</div>
+				<div class="spaceLine1"></div>
+			</div>
+			<div class="content partnerList">
+				<section class="" >
+					<div class="titleImg">
+					<span class="name">天使投资</span>
+					</div>
+					<ul class="list">
+						<li><img src="/home/images/partner-001.png" alt=""></li>
+							<li><img src="/home/images/partner-002.png" alt=""></li>
+								<li><img src="/home/images/partner-003.png" alt=""></li>
+									<li><img src="/home/images/partner-004.png" alt=""></li>
+					</ul>
+				</section>
+				<section class="partnerList" >
+					<div class="titleImg"><span class="name">VC机构</span></div>
+					<ul class="list">
+						<li><img src="/home/images/partner-006.png" alt=""></li>
+						<li><img src="/home/images/partner-007.png" alt=""></li>
+						<li><img src="/home/images/partner-008.png" alt=""></li>
+						<li><img src="/home/images/partner-009.png" alt=""></li>
+					</ul>
+				</section>
+			
+				<section class="partnerList" >
+					<div class="titleImg"><span class="name">PE机构</span></div>
+					<ul class="list">
+						<li><img src="/home/images/partner-100.png" alt=""></li>
+						<li><img src="/home/images/partner-111.png" alt=""></li>
+						<li><img src="/home/images/partner-122.png" alt=""></li>
+					</ul>
+				</section>
+				<section class="partnerList" >
+					<div class="titleImg"><span class="name">证券公司</span></div>
+					<ul class="list">
+						<li><img src="/home/images/partner-133.png" alt=""></li>
+						<li><img src="/home/images/partner-144.png" alt=""></li>
+					</ul>
+				</section>
+				<section class="partnerList" >
+					<div class="titleImg"><span class="name">银行</span></div>
+					<ul class="list">
+						<li><img src="/home/images/partner-155.png" alt=""></li>
+					</ul>
+				</section>
+			</div>
+		</section>
+	</template>
+
+
 
 </el-main>	
 @endsection	

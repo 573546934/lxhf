@@ -21,15 +21,6 @@
     </div>
 </div>
 
-<!-- <div class="layui-form-item">
-    <label for="" class="layui-form-label">标签</label>
-    <div class="layui-input-block">
-        @foreach($tags as $tag)
-            <input type="checkbox" name="tags[]" {{ $tag->checked??'' }} value="{{ $tag->id }}" title="{{ $tag->name }}">
-        @endforeach
-    </div>
-</div> -->
-
 <div class="layui-form-item">
     <label for="" class="layui-form-label">标题</label>
     <div class="layui-input-block">

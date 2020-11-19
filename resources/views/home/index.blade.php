@@ -32,7 +32,7 @@
 							<ul>
 								<li class="actived"><a href="/home/index.html">首页</a></li>
 								<li><a href="/who">我们是谁</a></li>
-								<li><a href="/who">我们做什么</a></li>
+								<li><a href="/product">我们做什么</a></li>
 								<li><a href="/who">我们的历史</a></li>
 								<li><a href="/who">我们的未来</a></li>
 							</ul>
