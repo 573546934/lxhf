@@ -2,7 +2,7 @@
 /*
  * @Author: Liu Jing
  * @Date: 2019-12-23 15:43:12
- * @LastEditTime: 2020-11-20 12:11:12
+ * @LastEditTime: 2020-11-20 20:58:01
  * @LastEditors: Liu Jing
  * @Description: 
  * @FilePath: \lxhf\app\Http\Controllers\Home\IndexController.php
@@ -17,7 +17,6 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Member;
 use Faker\Provider\Uuid;
-use Validator;
 
 class IndexController extends Controller
 {
@@ -53,24 +52,19 @@ class IndexController extends Controller
 
     //注册
     public function reg(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'phone' => 'required|unique:member|min:11',
+    { 
+
+        $this->validate($request, [
+            'phone' => 'required|unique:members|min:11',
             'password' => 'required|min:6',
         ]);
 
-        if ($validator->fails()) {
-            return redirect('post/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-
-        $data = $request->post('data');
+        $data = $request->only('name','phone','password');
         $data['password'] = MD5($data['password'].'yan');
         $data['uuid'] = Uuid::uuid();
-        $res = Member::insert($data);
+        $res = Member::create($data);
         if($res){
-            $m = Member::where('phone',$data['phone'])->where('password',MD5($data['password'].'yan'))->first();
+            $m = Member::where('phone',$data['phone'])->first();
             session()->put('member', $m);
            return response(['code'=>0,'msg'=>'注册成功']);            
         }else{
@@ -80,8 +74,9 @@ class IndexController extends Controller
     //登录
     public function login(Request $request)
     {
-        $data = $request->post('data');
+        $data = $request->only('phone','password');
         $m = Member::where('phone',$data['phone'])->where('password',MD5($data['password'].'yan'))->first();
+        // dd(MD5($data['password'].'yan'));
         if($m){
             session()->put('member', $m);
             return response(['code'=>0,'msg'=>'登录成功']);

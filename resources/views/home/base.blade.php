@@ -8,6 +8,11 @@
 		<title>力新汇富</title>
 		<link rel="stylesheet" href="/home/css/element-ui.css" />
 		<link rel="stylesheet" href="/home/css/main.css" />
+
+
+		
+		<link rel="stylesheet" href="/static/admin/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/admin/layuiadmin/style/admin.css" media="all">
 	</head>
 	<body>
 
@@ -37,11 +42,13 @@
 								<div class="searchBox"><input type="text" placeholder="请输入关键词" />
 									<button type="image" src="./images/icon-search.png"></button>
 								</div>
-
-								<!-- <a class="btn reg">快速注册</a>
-								<a class="btn login">登录</a> -->
-
-								<a style="color: mistyrose">您好:会员123123123</a>
+								@if(session('member'))
+								<a style="color: mistyrose">您好:会员{{session('member')['name']}}</a>
+								
+								@else
+								<a class="btn reg"  id="openDialog1">快速注册</a>
+								<a class="btn login" id="openLogin">登录</a> 
+								@endif
 							</div>
 							<div class="searchBoxWrap">
 								<form action="" method="" />
@@ -120,6 +127,155 @@
 		<script src="/home/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/home/js/element-ui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/home/js/global.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/static/admin/layuiadmin/layui/layui.js"></script>
+
+<script>
+            layui.use(['layer','table','form'],function () {
+                var layer = layui.layer;
+                var form = layui.form;
+                var table = layui.table;
+				//弹出层
+				
+				var reg = '<br><div class="layui-form-item">'+
+   							 '<label for="" class="layui-form-label">电话号码</label>'+
+   							 '<div class="layui-input-inline">'+
+        						'<input type="text" name="phone" value="" id="phone" lay-verify="required" placeholder="请输入手机号码" class="layui-input" >'+
+    						'</div>'+
+							'</div>'+
+							/* '<div class="layui-form-item">'+
+   							 '<label for="" class="layui-form-label">验证码</label>'+
+   							 '<div class="layui-input-inline">'+
+        						'<input type="text" name="code" id="code" value="" lay-verify="required" placeholder="请输入验证码" class="layui-input" >'+
+							'</div>'+ 
+							'<div class="layui-form-mid layui-word-aux layui-btn" style="background: none;" id="send1" onclick="test()">发&nbsp&nbsp&nbsp送</div>'+
+							'</div>'+ */
+							'<div class="layui-form-item">'+
+   							 '<label for="" class="layui-form-label">密码</label>'+
+   							 '<div class="layui-input-inline">'+
+        						'<input type="password" name="password" id="password" value="" lay-verify="required" placeholder="请输入密码" class="layui-input" >'+
+    						'</div>'+
+							'</div>'+ '<div class="layui-form-item">'+
+   							 '<label for="" class="layui-form-label">姓名</label>'+
+   							 '<div class="layui-input-inline">'+
+        						'<input type="text" name="name" id="name" value="" lay-verify="required" placeholder="请输入姓名" class="layui-input" >'+
+    						'</div>'+
+							'</div>';
+
+                $("#openDialog1").click(function () {
+					layer.open({
+							type: 1, 
+							area: '400px',
+							content: reg //这里content是一个普通的String
+							,btn: ['注册', '取消']
+							,yes: function(index, layero){
+								//按钮【按钮一】的回调
+								
+								var phone = $("#phone").val()
+								var password = $("#password").val()
+								var name = $("#name").val()
+								console.log(phone)
+
+								//发送请求
+								$.post("{{ route('home.reg') }}",{_method:'post',phone:phone,password:password,name:name,_token:'{{csrf_token()}}'},function (result) {
+									if (result.code==0){
+										//注册成功	
+										layer.msg(result.msg,{icon:6});	
+										//刷新页面
+										location.reload() 	
+									}else{
+										layer.msg(result.msg,{icon:5});	
+									}
+								})
+								.fail(function(response) {
+									
+									var errors = eval('(' + response.responseText + ')').errors
+									console.log(errors)
+									var s = '';
+									for ( var k in errors) {
+										s +=  errors[k]
+									}
+									alert(s)
+								});
+								layer.close(index); //如果设定了yes回调，需进行手工关闭
+							}
+							,btn2: function(index, layero){
+								//按钮【按钮二】的回调
+								
+								//return false 开启该代码可禁止点击该按钮关闭
+							}
+							,closeBtn: 2
+							,btnAlign: 'c'
+							,shade: 0.5
+							});
+				})
+
+
+				var login = '<br><div class="layui-form-item">'+
+   							'<label for="" class="layui-form-label">电话号码</label>'+
+   							'<div class="layui-input-inline">'+
+        					'<input type="text" name="phone" value="" id="phone" lay-verify="required" placeholder="请输入手机号码" class="layui-input" >'+
+    						'</div>'+
+							'</div>'+
+							'<div class="layui-form-item">'+
+   							'<label for="" class="layui-form-label">密码</label>'+
+   							'<div class="layui-input-inline">'+
+        					'<input type="password" name="password" id="password" value="" lay-verify="required" placeholder="请输入密码" class="layui-input" >'+
+    						'</div>'+
+							'</div>';
+
+
+                $("#openLogin").click(function () {
+					layer.open({
+							type: 1, 
+							area: '400px',
+							content: login //这里content是一个普通的String
+							,btn: ['登录', '取消']
+							,yes: function(index, layero){
+
+								var phone = $("#phone").val()
+								var password = $("#password").val()
+								//发送请求
+								$.post("{{ route('home.login') }}",{_method:'post',phone:phone,password:password,_token:'{{csrf_token()}}'},function (result) {
+									if (result.code==0){
+										//登录成功	
+										layer.msg(result.msg,{icon:6});	
+										//刷新页面
+										location.reload() 	
+									}else{
+										layer.msg(result.msg,{icon:5});	
+									}
+								})
+								.fail(function(response) {
+									
+									var errors = eval('(' + response.responseText + ')').errors
+									console.log(errors)
+									var s = '';
+									for ( var k in errors) {
+										s +=  errors[k]
+									}
+									alert(s)
+								});
+								layer.close(index); //如果设定了yes回调，需进行手工关闭
+							}
+							,btn2: function(index, layero){
+								//按钮【按钮二】的回调
+								
+								//return false 开启该代码可禁止点击该按钮关闭
+							}
+							,closeBtn: 2
+							,btnAlign: 'c'
+							,shade: 0.5
+							});
+				})
+				
+			})
+			function test(){
+				var p = $("#phone").val();
+					console.log(p)
+
+				}
+        </script>
 		
     @yield('script')
 	</body>
