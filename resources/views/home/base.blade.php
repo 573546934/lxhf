@@ -37,8 +37,11 @@
 								<div class="searchBox"><input type="text" placeholder="请输入关键词" />
 									<button type="image" src="./images/icon-search.png"></button>
 								</div>
-								<a class="btn reg">快速注册</a>
-								<a class="btn login">登录</a>
+
+								<!-- <a class="btn reg">快速注册</a>
+								<a class="btn login">登录</a> -->
+
+								<a style="color: mistyrose">您好:会员123123123</a>
 							</div>
 							<div class="searchBoxWrap">
 								<form action="" method="" />

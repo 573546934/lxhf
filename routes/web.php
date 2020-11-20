@@ -2,7 +2,7 @@
 /*
  * @Author: Liu Jing
  * @Date: 2019-12-23 15:43:13
- * @LastEditTime: 2020-11-19 16:47:24
+ * @LastEditTime: 2020-11-20 11:31:50
  * @LastEditors: Liu Jing
  * @Description: 
  * @FilePath: \lxhf\routes\web.php
@@ -15,10 +15,17 @@ Route::post('/sendMsg', 'PublicController@sendMsg')->name('sendMsg');
 Route::get('/','Home\IndexController@index')->name('home');
 Route::get('/index/lunbo','Home\IndexController@lunbo')->name('home.index.lunbo');
 Route::get('/who','Home\IndexController@who')->name('home.index.who');
+Route::post('/home/reg','Home\IndexController@reg')->name('home.reg');
+Route::post('/home/login','Home\IndexController@login')->name('home.login');
+Route::get('/after','Home\AfterController@index')->name('home.after.index');
 
 //产品
 Route::get('product','Home\ProductController@index')->name('home.product.index');
 Route::get('product/detail','Home\ProductController@detail')->name('home.product.detail');
+
+//文章
+Route::get('news','Home\NewsController@index')->name('home.news.index');
+Route::get('news/detail','Home\NewsController@detail')->name('home.news.detail');
 
 Route::get('/tableft','Home\IndexController@tableft')->name('home.index.tableft');
 

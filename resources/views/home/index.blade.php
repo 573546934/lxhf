@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="/home/css/element-ui.css" />
 		<link rel="stylesheet" href="/home/css/progressive.css" />
 		<link rel="stylesheet" href="/home/css/main.css" />
+
+		<link rel="stylesheet" type="text/css" href="/home/css/dialog.css" />
 	</head>
 	<body>
 
@@ -33,8 +35,8 @@
 								<li class="actived"><a href="/home/index.html">首页</a></li>
 								<li><a href="/who">我们是谁</a></li>
 								<li><a href="/product">我们做什么</a></li>
-								<li><a href="/who">我们的历史</a></li>
-								<li><a href="/who">我们的未来</a></li>
+								<li><a href="/news">我们的历史</a></li>
+								<li><a href="/after">我们的未来</a></li>
 							</ul>
 							<div class="searchBoxWrap">
 								<form action="" method="" />
@@ -137,8 +139,12 @@
 				<div class="img"><img src="/home/images/footerImg.png" alt=""></div>
 
 				<div class="btns">
-					<button type="button" class="reg">快速注册</button>
+					@if(session('member'))
+					<button class="login">已登录</button> 
+					@else
+					<button type="button" class="reg" id="openDialog1">点我打开对话框1</button>
 					<button type="button" class="login">登录</button>
+					@endif
 				</div>
 			</div>
 		</footer>
@@ -150,5 +156,55 @@
 		<script src="/home/js/global.js" type="text/javascript" charset="utf-8"></script>
 		<!-- <script src="/home/js/main.js" type="text/javascript" charset="utf-8"></script> -->
 		<script src="/home/js/index.js" type="text/javascript" charset="utf-8"></script>
+		
+
+		<script src="/home/js/dialog.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$("#openDialog1").dialog({
+				id: "superDialog", //必填,必须和已有id不同
+				title: "快速注册", //对话框的标题 默认值: 我的标题
+				type: 0, //0 对话框有确认按钮和取消按钮 1 对话框只有关闭按钮
+				easyClose: true, // 点击遮罩层也可以关闭窗口,默认值false
+				form: [{
+					description: "手机号码",
+					type: "text",
+					name: "phone",
+					value: "tom"
+				}, {
+					description: "密码",
+					type: "password",
+					name: "password",
+					value: "123456"
+				}, {
+					description: "姓名",
+					type: "text",
+					name: "name",
+					value: "tom"
+				}], //form 是填充表单的数据,必填
+				submit: function(data) {
+					//data是表单收集的数据
+					console.log(data);
+
+					//这个可自行删去
+					if (true) {
+						$.post("{{ route('home.reg') }}",{_method:'post',data:data,_token:'{{csrf_token()}}'},function (result) {
+							if (result.code==0){
+								//注册成功		
+								clearAllData("superDialog");
+								//刷新页面
+								location.reload() 	
+							}else{
+								clearAllData("superDialog");
+							}
+						})
+						//alert("提交成功\n（你自己可以去掉这个alert）");
+						//清空表单数据 传递参数=上述指定的id值
+						
+					}
+
+				}
+			})
+		</script>
 	</body>
 </html>

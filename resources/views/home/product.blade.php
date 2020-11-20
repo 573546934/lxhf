@@ -3,8 +3,8 @@
 	<li><a href="/">首页</a></li>
 	<li ><a href="/who">我们是谁</a></li>
 	<li class="actived"><a href="/product">我们做什么</a></li>
-	<li><a href="/default">我们的历史</a></li>
-	<li><a href="/default">我们的未来</a></li>
+	<li><a href="/news">我们的历史</a></li>
+	<li><a href="/after">我们的未来</a></li>
 @endsection
 
 <!-- 中间内容 -->
@@ -171,7 +171,7 @@
 							</div>
 						<el-button><img src="/home/images/viewDetail.png" class="icon" alt=""/><span>查看详情</span></el-button>
 						</div>
-						<img class="firstImg" src="{{$v['thumb']}}" alt="">
+						<img class="firstImg" src="{{$v['thumb']}}" alt=""style="height: 270px;">
 					</el-link>
 					</div>
 				@else	
