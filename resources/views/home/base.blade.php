@@ -83,19 +83,24 @@
 								</template>
 							</el-tabs>
 						</template>
-						<el-footer height="auto">
-							<div class="web">
-								<img src="/home/images/icon-wx.png" alt="微信公众号" />
-								<a href="" target="_blank"><img src="/home/images/icon-weibo.png" alt="微博" /></a>
-							</div>
-							<div class="links">
-								<a href="">网站地图</a>
-								<a href="">网站隐私</a>
-								<a href="">联系我们</a>
-							</div>
-							<div class="copyright">
-								© 2020 lxhffund.com Corporation. <br />All rights reserved
-							</div>
+						<el-footer height="auto" >
+								<div class="web">
+									<div class="qrWrap">
+										<img src="/home/images/icon-wx.png" alt="微信公众号" />	
+										<div class="qrcode"><img src="/home/images/qr.png" alt="二维码" /></div>
+									</div>
+									<!--a href="" target="_blank"><img src="./images/icon-weibo.png" alt="微博" /></a-->
+								</div>
+								<div class="links">
+									<!--a href="">网站地图</a>
+									<a href="">网站隐私</a-->
+									<a href="/contact">加入我们</a>
+									<a href="/after">联系我们</a>
+								</div>
+								<div class="copyright">
+									© 2020 lxhffund.com Corporation. All rights reserved
+								</div>
+							
 						</el-footer>
 					</el-aside>
 					<el-container>

@@ -3,8 +3,9 @@
 	<li><a href="/">首页</a></li>
 	<li ><a href="/who">我们是谁</a></li>
 	<li><a href="/product">我们做什么</a></li>
-	<li><a href="/news">我们的历史</a></li>
+	<li><a href="/news">发展历程</a></li>
 	<li class="actived"><a href="/after">我们的未来</a></li>
+	<li ><a href="/contact">加入我们</a></li>
 @endsection
 
 <!-- 中间内容 -->
@@ -12,54 +13,35 @@
 <el-main  class="el-main article" >
 
 	<template v-if="asideTabIndex==0">
-		<section class="recruitment">
-			<div class="top">
-				<div class="left">
-					<img class="title pageTitleImg" src="/home/images/recruitmentTitle.png" alt="">
-					<p>
-						力新汇富欢迎各界英才加入！我们重视“选、用、育、留、汰”各个阶段的人才管理。我们坚持“用人之长，无不可用之人；用人之短，无人可用”的用人理念，坚持”能者上，庸者下，劣者汰”的用人标准，在做好公司短、中、长期发展的同时，我们更是对每位员工做好了未来的职业规划。</p>
-					<p>
-						企业文化“16”字方针：“用脑谋事，用心做事，全身投入，实现自我”。
-					</p>
-					<div class="standard">
-						员工规范标准：<br />
-						做事标准：到位不越位。<br />
-						行为标准：建议不决策。<br />
-						做人标准：补台不拆台。
-					</div>
-				</div>
-				<div class="right"><img src="/home/images/recruitment.png" alt=""></div>
+		<section class="leaderSpeech">
+		<div class="sectionHead">
+				<img class="pageTitleImg" src="/home/images/speech_title.png" alt="">
+				<div class="title">我们的未来</div>
+				<div class="spaceLine1"></div>
 			</div>
-			<div class="job">
-			<div class="item">
-					<h3>法务助理兼总经理助理</h3>
-					<div class="introduction">岗位职责：</div>
-					<p>
-						做好合同/协议、往来文件、项目资料的档案管理工作；<br />
-						做好总经理主持或参加会议的会议纪要；<br />
-						协助总经理参与项目的尽职调查，并完成尽职调查的辅助工作；<br />
-						协助总经理做好信息收集、文件整理工作；<br />
-						协助完成相关PPT的制作；<br />
-						协助总经理做好日常接待工作；<br />
-						总经理安排的其他事务。
-					</p>
-					<a class="btn">立即申请</a>
+			
+			<div class="content">
+				<div class="leader">
+					<img src="/home/images/future_pic_hd.png" alt="" class="" />
+				</div>
+				
+				<div class="speech">
+					<h3 style="display: block;
+							font-size: 1.5rem;
+							margin-block-start: 1em;
+							margin-block-end: 1em;
+							margin-inline-start: 0px;
+							margin-inline-end: 0px;
+							font-weight: bold;">
+							我们的未来-资本的服务商
+						</h3>
+					<p>金融布局“机器人”模型</p>
+					<br>
+					<p>力新汇富依托创新谷产业招商优势和良好的社会资源，一方面，以优质项目储备驱动各投行机构参与者，建立类资金池机构平台联盟；另一方面，通过产业的集聚，建立类项目池园区联盟，两大平台联盟的资金、项目匹配，实现资本服务商的布局。<br />
+					集金融平台之优势，促区域经济之发展，通过机构集聚、园区联盟、优势互补，实现“有钱出钱，有项目引项目”；通过平台资源、信息的共享融合，达到以融扶产、以产引资的布局。<br />
+					力新汇富联合创新谷，定位于企业孵化的引领者、产城创投的践行者、上市公司的缔造者，立足服务、产融结合、积极参与，做资本的服务商。资金集聚、产业集聚、更通过定制化服务，催生类集团化的资本航母、类集团化的企业航母，以提高单体机构、企业的市场竞争力，在后疫情时代，掀起资本裂变的新一波浪潮。</p>
 					</div>
-				<div class="item">
-					<h3>
-						法务助理兼总经理助理
-					</h3>
-					<div class="introduction">岗位职责：</div>
-					<p>
-						做好合同/协议、往来文件、项目资料的档案管理工作；<br />
-						做好总经理主持或参加会议的会议纪要；<br />
-						协助总经理参与项目的尽职调查，并完成尽职调查的辅助工作；<br />
-						协助总经理做好信息收集、文件整理工作；<br />
-						协助完成相关PPT的制作；<br />
-						协助总经理做好日常接待工作；<br />
-						总经理安排的其他事务。
-					</p>
-					<a class="btn">立即申请</a>
+					
 				</div>
 			</div>
 		</section>
@@ -94,6 +76,11 @@
 						<div class="msg">lixinhuifu@126.com</div>
 					</div>
 				</div>
+				
+			<div id="mapContainer" style="width: 100%;
+				height: 600px;
+				margin: 2rem 0;
+				border: 1px solid #bbb;"></div>
 			</div>
 		</section>
 	</template>
@@ -157,33 +144,6 @@
 			}
 		});
 
-		lixin.showMore=function(){
-			console.log(lixin.config.isShowMore)
-			// lixin.config.isShowMore=!lixin.config.isShowMore
-			Vue.set(lixin.config, 'isShowMore',!lixin.config.isShowMore);
-		}
-
-		function test(id){
-
-			//获取文章详情
-			$.post("{{ route('home.product.detail') }}",{_method:'get',id:id},function (result) {
-				if (result.code==0){
-					var data = result.data;
-
-					var h = '<div class="articleContent">'+
-							'<div class="atitle" style="font-size: 1,5rem;">'+data.title+'</div>'+
-							'<div class="spaceLine-icon"></div>'+
-							'<div class="content" >'+
-							data.content+
-							'</div>'+
-							'</div>';
-
-					$("#tex").html(h);			
-				}
-			})
-		
-			$("#det").hide();
-		}	
 	
 	</script>
 	<style>
@@ -195,4 +155,41 @@
 			line-height: 1.5em;
 		}
 	</style>
+<script src="https://map.qq.com/api/gljs?v=1.exp&key=CSYBZ-IRQK2-KVAUO-CMKJQ-D4I2J-4YF76"></script>
+<script type="text/javascript">
+var center = new TMap.LatLng(39.717889,116.126844); //设置中心点坐标
+											//初始化地图
+											var map = new TMap.Map('mapContainer', {
+												center: center,
+												zoom: 18
+											});
+											//初始化label
+											var label = new TMap.MultiLabel({
+												id: 'label-layer',
+												map: map,
+												styles: {
+													'label': new TMap.LabelStyle({
+														'color': '#3777FF', //颜色属性
+														'size': 20, //文字大小属性
+														'offset': {
+															x: 0,
+															y: 0
+														}, //文字偏移属性单位为像素
+														'angle': 0, //文字旋转属性
+														'alignment': 'center', //文字水平对齐属性
+														'verticalAlignment': 'middle' //文字垂直对齐属性
+													})
+												},
+												geometries: [{
+													'id': 'label', //点图形数据的标志信息
+													'styleId': 'label', //样式id
+													'position': center, //标注点位置
+													'content': '北京力新汇富投资基金管理有限公司', //标注文本
+													'properties': { //标注点的属性数据
+														'title': 'label'
+													}
+												}]
+											});
+</script>
+
 @endsection				

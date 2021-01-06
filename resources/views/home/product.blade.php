@@ -3,8 +3,9 @@
 	<li><a href="/">首页</a></li>
 	<li ><a href="/who">我们是谁</a></li>
 	<li class="actived"><a href="/product">我们做什么</a></li>
-	<li><a href="/news">我们的历史</a></li>
+	<li><a href="/news">发展历程</a></li>
 	<li><a href="/after">我们的未来</a></li>
+	<li ><a href="/contact">加入我们</a></li>
 @endsection
 
 <!-- 中间内容 -->
@@ -21,7 +22,10 @@
 			<div class="content serviceShow">
 				
 				
-			<div class="title">企业赋能业务</div>
+			<div class="title" style="    font-size: 1.5rem;
+									text-align: center;
+									margin: 3rem auto 1rem;
+								">企业赋能业务</div>
 			<div class="spaceLine-icon"></div>
 			<div class="subtitle">现有产业深度服务 VS 大框架全方位赋能、联盟式产融结合</div>
 			<div class="intros">
@@ -156,7 +160,38 @@
 	</template>
 
 	<template v-if="asideTabIndex==2">
-		<div id="tex">
+
+
+							<section>
+									<div class="sectionHead">
+										<img class="pageTitleImg" src="/home/images/partnerTitle.png" alt="">
+										<div class="title">力新产品</div>
+										<div class="spaceLine1"></div>
+									</div>
+									<div class="content serviceShow">
+										
+										
+									<div class="title" style="font-size: 1.5rem;
+										text-align: center;
+										margin: 3rem auto 1rem;">力新产品</div>
+									<div class="spaceLine-icon"></div>
+									
+									<div class="intros" style="    border: 1px solid #C50018;
+									background-color: #F7DEE1;
+									padding: 2rem 0;
+									box-sizing: border-box;
+									display: flex;
+									margin: 2rem 0;"><div style="width:100%;text-align:center">筹划发行中，敬请期待。</div>
+										
+									</div>
+									
+									
+									
+                                    </div>
+								</section>
+
+
+		<!-- <div id="tex">
 		
 		</div>
 		<div id="det">
@@ -192,7 +227,7 @@
 				@endif
 			@endforeach
 		
-		</div>		
+		</div>		 -->
 	</template>
 	
 </el-main>	

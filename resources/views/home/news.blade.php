@@ -3,8 +3,9 @@
 	<li><a href="/">首页</a></li>
 	<li ><a href="/who">我们是谁</a></li>
 	<li ><a href="/product">我们做什么</a></li>
-	<li class="actived"><a href="/news">我们的历史</a></li>
+	<li class="actived"><a href="/news">发展历程</a></li>
 	<li><a href="/after">我们的未来</a></li>
+	<li><a href="/contact">加入我们</a></li>
 @endsection
 
 <!-- 中间内容 -->
@@ -99,7 +100,7 @@
 		<script src="./js/templage.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		var Tabs = [];
-		 $.post("{{ route('home.index.tableft') }}",{_method:'get',title:'我们的历史'},function (result) {
+		 $.post("{{ route('home.index.tableft') }}",{_method:'get',title:'发展历程'},function (result) {
 			if (result.code==0){
 				var data = result.data;
 				//

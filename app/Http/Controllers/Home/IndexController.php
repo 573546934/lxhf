@@ -2,7 +2,7 @@
 /*
  * @Author: Liu Jing
  * @Date: 2019-12-23 15:43:12
- * @LastEditTime: 2020-11-20 20:58:01
+ * @LastEditTime: 2021-01-06 14:03:34
  * @LastEditors: Liu Jing
  * @Description: 
  * @FilePath: \lxhf\app\Http\Controllers\Home\IndexController.php
@@ -33,6 +33,12 @@ class IndexController extends Controller
     {
         //$data = Category::where('name','like','我们是谁')->with('childsOne')->orderBy('sort','desc')->first()->toArray();
         return view('home.who');
+    }
+
+    //加入我们页面
+    public function contact()
+    {
+        return view('home.contact');
     }
 
     public function lunbo(Request $request)
