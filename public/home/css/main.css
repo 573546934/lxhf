@@ -147,7 +147,7 @@ h1 {
 }
 
 #rootBox.index header,
-#rootBox footer {
+#footer {
 	position: absolute;
 	width: 100vw;
 	left: 0;
@@ -292,7 +292,7 @@ h1 {
 }
 
 /* 首页底部 */
-#rootBox footer {
+#footer {
 	bottom: 0;
 	height: 5em;
 	background-color: rgba(0, 0, 0, 0.7);
@@ -308,7 +308,7 @@ h1 {
 	padding-top: 1em;
 }
 
-#rootBox footer .content {
+#footer .content {
 	color: #fff;
 	display: flex;
 	justify-content: space-between;
@@ -321,20 +321,20 @@ h1 {
 
 }
 
-#rootBox footer .img {
+#footer .img {
 	flex: 0 1 19rem;
 	height: auto;
 	min-width: 7.5rem;
 	vertical-align: top;
 }
 
-#rootBox footer .img img {
+#footer .img img {
 	width: 100%;
 }
 
-#rootBox footer .btns {}
+#footer .btns {}
 
-#rootBox footer .btns button {
+#footer .btns button {
 	margin-right: 1.3125rem;
 	font-size: 0.875rem;
 	border: 1px solid #FFFFFF;
@@ -346,11 +346,11 @@ h1 {
 	width: 8.75rem;
 }
 
-#rootBox footer .btns button:last-child {
+#footer .btns button:last-child {
 	margin-right: 0;
 }
 
-#rootBox footer .btns button.login {
+#footer .btns button.login {
 	background-color: #C50018;
 	border-color: #C50018;
 }
@@ -2423,18 +2423,18 @@ h1 {
 		padding: .5rem 0;
 	}
 
-	#rootBox footer .content {
+	#footer .content {
 		flex-wrap: wrap;
 		justify-content: center;
 
 	}
 
-	#rootBox footer .img {
+	#footer .img {
 		flex: 0 0 70%;
 		margin-top: 1.5rem;
 	}
 
-	#rootBox footer .btns {
+	#footer .btns {
 		margin-bottom: 1.5rem;
 	}
 
@@ -2551,7 +2551,7 @@ h1 {
 		color: #fff;
 	}
 
-	#rootBox footer {
+	#footer {
 		height: 10em;
 	}
 
